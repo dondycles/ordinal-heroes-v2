@@ -1,26 +1,29 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { BsDiscord, BsTwitter } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 export default function ({
   menuState,
   closeMenu,
+  navigateTo,
 }: {
   menuState: boolean;
   closeMenu: () => void;
+  navigateTo: (pathname: string) => void;
 }) {
   const [animateOptions, setAnimateOptions] = useState(false);
+  const route = useRouter();
   let options = [
-    "CONNECT WALLET",
-    "HOME",
-    "ABOUT",
-    "HEROEZ UNIVERSITY",
-    "QUEST SYSTEM",
-    "LIGHT NOVEL",
-    "STUDIO Z",
-    "COLLECTION",
-    "UPDATES",
-    "TEAM",
+    { title: "CONNECT WALLET", href: "/connectwallet" },
+    { title: "HOME", href: "/" },
+    { title: "ABOUT", href: "/about" },
+    { title: "HEROEZ UNIVERSITY", href: "/heroez-university" },
+    { title: "QUEST SYSTEM", href: "/quest-system" },
+    { title: "LIGHT NOVEL", href: "/light-novel" },
+    { title: "STUDIO Z", href: "/studio-z" },
+    { title: "COLLECTION", href: "/collection" },
+    { title: "UPDATES", href: "/updates" },
+    { title: "TEAM", href: "/team" },
   ];
 
   useEffect(() => {
@@ -44,15 +47,14 @@ export default function ({
         {menuState && (
           <motion.div
             layout
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={{ x: "50%", opacity: 0 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: "10%", opacity: 0 }}
             transition={{
-              type: "spring",
-              damping: 16,
+              duration: 0.3,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full sm:w-2/3 h-full bg-primary/75 px-6 pb-6 flex flex-col gap-6 border-secondary border-2 sm:rounded-l-box"
+            className=" w-full sm:w-2/3 h-full bg-primary/75 px-6 pb-6 flex flex-col "
           >
             <motion.div
               layout
@@ -66,14 +68,21 @@ export default function ({
                       return (
                         <motion.li
                           key={i}
+                          onClick={() => {
+                            navigateTo(option.href);
+                            closeMenu();
+                            // setTimeout(() => {
+                            //   route.push(option.href);
+                            // }, 3000);
+                          }}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: (0.1 + i) / 10 }}
                           className={`btn btn-ghost hover:btn-secondary hover:text-primary  ${
-                            option === "CONNECT WALLET" && "btn-disabled"
+                            option.title === "CONNECT WALLET" && "btn-disabled"
                           }`}
                         >
-                          {option.toUpperCase()}
+                          {option.title.toUpperCase()}
                         </motion.li>
                       );
                     })}
@@ -83,7 +92,7 @@ export default function ({
             </motion.ul>
             <motion.footer
               layout
-              className=" text-4xl flex flex-col gap-4 justify-center items-center mt-auto mb-0"
+              className=" text-2xl flex flex-col gap-4 justify-center items-center mt-auto mb-0"
             >
               <div className="flex gap-4 rounded-box bg-accent text-primary p-6 w-full items-center justify-center">
                 <BsDiscord />
