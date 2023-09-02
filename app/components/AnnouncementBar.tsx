@@ -5,7 +5,7 @@ export default function AnnouncementBar() {
   const [cycled, setCycled] = useState(false);
   return (
     <div
-      className={`fixed bottom-0 left-0 w-screen  duration-300 bg-neutral text-primary ${
+      className={`fixed bottom-0 left-0 w-screen  duration-300 bg-accent text-primary ${
         cycled && "invisible"
       }`}
     >

@@ -69,7 +69,7 @@ export default function ({
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: (0.1 + i) / 10 }}
-                          className={`btn btn-ghost hover:btn-neutral  ${
+                          className={`btn btn-ghost hover:btn-secondary hover:text-primary  ${
                             option === "CONNECT WALLET" && "btn-disabled"
                           }`}
                         >
@@ -83,7 +83,7 @@ export default function ({
             </motion.ul>
             <motion.footer
               layout
-              className=" rounded-box bg-neutral text-primary p-6 text-4xl flex gap-4 justify-center items-center "
+              className=" rounded-box bg-accent text-primary p-6 text-4xl flex gap-4 justify-center items-center "
             >
               <BsDiscord />
               <BsTwitter />
