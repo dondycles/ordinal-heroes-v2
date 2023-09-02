@@ -52,7 +52,7 @@ export default function ({
               damping: 16,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full sm:w-2/3 h-full bg-base-100/75 px-6 pb-6 flex flex-col gap-6"
+            className=" w-full sm:w-2/3 h-full bg-primary/75 px-6 pb-6 flex flex-col gap-6"
           >
             <motion.div
               layout

@@ -5,8 +5,8 @@ export default function AnnouncementBar() {
   const [cycled, setCycled] = useState(false);
   return (
     <div
-      className={`fixed bottom-0 left-0 w-screen  duration-300 bg-accent text-primary ${
-        cycled && "invisible"
+      className={`fixed bottom-0 left-0 w-screen  duration-300 bg-accent text-primary  ${
+        cycled && "opacity-0 pointer-events-none"
       }`}
     >
       <Marquee

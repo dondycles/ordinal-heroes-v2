@@ -7,8 +7,8 @@ import AnnouncementBar from "./components/AnnouncementBar";
 const inter = Kanit({ subsets: ["latin"], weight: ["200", "400", "900"] });
 
 export const metadata: Metadata = {
-  title: "Ordinal Heroes",
-  description: "Unleash your inner hero.",
+  title: "HeroeZ",
+  description: "Heroes in 6th Dimension.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-neutral`}>
+      <body className={`${inter.className} text-neutral bg-primary`}>
         <Nav />
         {children}
         <AnnouncementBar />
