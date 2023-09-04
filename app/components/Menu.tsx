@@ -37,7 +37,7 @@ export default function ({
   return (
     <div
       onClick={() => closeMenu()}
-      className={`fixed top-0 left-0 w-screen h-screen  z-50 duration-500 flex justify-end  ${
+      className={`fixed top-0 left-0 w-screen h-[100dvh]  z-50 duration-500 flex justify-end  ${
         !menuState
           ? "pointer-events-none backdrop-blur-0 backdrop-brightness-100"
           : " backdrop-blur-[1px] backdrop-brightness-50"
@@ -58,7 +58,7 @@ export default function ({
           >
             <motion.div
               layout
-              className="w-full max-h-24 h-screen py-6 "
+              className="w-full max-h-24 h-full py-6 "
             ></motion.div>
             <motion.ul layout className="flex flex-col gap-1">
               <AnimatePresence>
