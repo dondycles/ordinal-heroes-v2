@@ -54,13 +54,13 @@ export default function ({
               duration: 0.3,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full sm:w-2/3 h-full bg-primary/75 px-6 pb-6 flex flex-col "
+            className=" w-full  sm:w-2/3 h-full bg-primary/[90%] backdrop-blur-sm px-6 pb-6 flex flex-col "
           >
             <motion.div
               layout
               className="w-full max-h-24 h-screen py-6 "
             ></motion.div>
-            <motion.ul layout className="flex flex-col ">
+            <motion.ul layout className="flex flex-col gap-1">
               <AnimatePresence>
                 {animateOptions && (
                   <>
@@ -78,7 +78,7 @@ export default function ({
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: (0.1 + i) / 10 }}
-                          className={`btn bg-transparent border-none hover:bg-secondary hover:text-primary  ${
+                          className={`btn active:bg-secondary bg-transparent border-none hover:bg-secondary hover:text-primary  ${
                             option.title === "CONNECT WALLET" && "btn-disabled"
                           }`}
                         >

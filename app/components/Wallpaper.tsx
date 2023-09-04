@@ -11,16 +11,11 @@ export default function Wallpaper() {
       width: window.innerWidth,
       height: window.innerHeight,
     });
-    console.log(windowSize);
   };
 
   useEffect(() => {
-    // Add event listener for the 'resize' event
     window.addEventListener("resize", handleResize);
-
-    // Initial size
-
-    // Clean up the event listener when the component unmounts
+    handleResize();
     return () => {
       window.removeEventListener("resize", handleResize);
       setWindowSize({ width: 0, height: 0 });

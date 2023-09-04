@@ -5,24 +5,38 @@ import { usePathname, useRouter } from "next/navigation";
 import Menu from "./Menu";
 import MenuBtn from "./MenuBtn";
 import Curtain from "./Curtain";
+import Link from "next/link";
 export default function Nav() {
   const pathname = usePathname();
   const route = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [isNavigated, setIsNavigated] = useState(true);
+  const [isNavigated, setIsNavigated] = useState(false);
   const [navigatingTo, setNavigatingTo] = useState(pathname);
   useEffect(() => {
+    if (!isMounted) return;
     if (pathname === navigatingTo) {
       setIsNavigated(true);
     } else setIsNavigated(false);
   }, [pathname, navigatingTo]);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsNavigated(true);
+      setIsMounted(true);
+    }, 2000);
+  }, []);
   return (
     <motion.nav className="fixed top-0 left-0 w-screen p-6 flex justify-between items-center max-h-24 h-full z-50">
       {/* <p className="font-black flex items-start text-secondary">
         <span className="text-3xl mt-1">Heroe</span>
         <span className=" text-5xl block w-fit ">Z!</span>
       </p> */}
-      <div>
+      <div
+        onClick={() => {
+          setNavigatingTo("/");
+        }}
+        className=" cursor-pointer"
+      >
         <img
           className=" aspect-square h-[64px]"
           src="/logo256.png"

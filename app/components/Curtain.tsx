@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 export default function Curtain({
   isNavigating,
   navigate,
@@ -7,24 +8,37 @@ export default function Curtain({
   isNavigating: boolean;
   navigate: () => void;
 }) {
+  const bgs = ["bg-[#bceaff]", "bg-accent"];
+
   return (
     <div className=" fixed top-0 left-0 w-screen h-screen z-[51] pointer-events-none">
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isNavigating && (
           <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             exit={{ x: "0%", opacity: 0, scale: 1.1 }}
-            transition={{ duration: 1, type: "spring", damping: 12 }}
+            transition={{ duration: 1, type: "spring", damping: 14 }}
             onAnimationComplete={() => {
               setTimeout(() => {
                 navigate();
               }, 1000);
             }}
-            className=" w-full  h-full bg-[#bceaff]    px-6 pb-6 flex flex-col gap-4 items-center justify-center"
+            className={` w-full  h-full  px-6 pb-6 flex flex-col gap-4 items-center justify-center ${
+              bgs[Math.floor(Math.random() * 2)]
+            }`}
           >
-            <motion.img src="/logo256.png" alt="HeroeZ" />
-            <motion.span className="loading loading-infinity loading-xl text-primary" />
+            <Image
+              width={3000}
+              height={2368}
+              priority
+              quality={100}
+              className="max-w-[300px] w-full"
+              src="/logohighres.webp"
+              alt="HeroeZ"
+            />
+
+            <span className="loading loading-infinity loading-lg text-neutral" />
           </motion.div>
         )}
       </AnimatePresence>
