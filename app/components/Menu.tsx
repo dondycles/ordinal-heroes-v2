@@ -57,7 +57,7 @@ export default function ({
               damping: 10,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full  sm:w-2/3 h-full bg-primary/[93%] backdrop-blur-sm px-6 pb-6 flex flex-col "
+            className=" w-full  sm:w-2/3 h-full bg-primary/[95%] px-6 pb-6 flex flex-col "
           >
             <motion.div
               layout
