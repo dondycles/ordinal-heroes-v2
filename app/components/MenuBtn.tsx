@@ -15,9 +15,7 @@ export default function MenuBtn({
     <button
       onClick={() => toggleMenu()}
       className={`z-[51] btn flex items-center gap-2 max-w-[100px] w-screen ${
-        menuStatus
-          ? " btn-secondary hover:bg-secondary-focus text-primary "
-          : "btn-outline hover:bg-secondary-focus border-secondary hover:border-secondary-focus text-secondary"
+        !menuStatus ? "  btn-outline " : " btn-secondary text-primary"
       }`}
     >
       <AnimatePresence>
