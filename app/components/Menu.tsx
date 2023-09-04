@@ -53,6 +53,8 @@ export default function ({
             exit={{ x: "10%", opacity: 0 }}
             transition={{
               duration: 0.3,
+              type: "spring",
+              damping: 10,
             }}
             onClick={(e) => e.stopPropagation()}
             className=" w-full  sm:w-2/3 h-full bg-primary/[93%] backdrop-blur-sm px-6 pb-6 flex flex-col "
