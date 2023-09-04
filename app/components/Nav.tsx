@@ -29,10 +29,10 @@ export default function Nav() {
           alt="HeroeZ"
         />
       </div>
-      <div className="text-xs">
+      {/* <div className="text-xs">
         <p>Is Navigating To: {navigatingTo}</p>
         <p>Is Navigated?: {String(isNavigated)}</p>
-      </div>
+      </div> */}
 
       <MenuBtn
         menuStatus={showMenu}
