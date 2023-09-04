@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { BsDiscord, BsTwitter } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 export default function ({
   menuState,
   closeMenu,
@@ -13,6 +13,7 @@ export default function ({
 }) {
   const [animateOptions, setAnimateOptions] = useState(false);
   const route = useRouter();
+  const pathname = usePathname();
   let options = [
     { title: "CONNECT WALLET", href: "/connectwallet" },
     { title: "HOME", href: "/" },
@@ -78,8 +79,13 @@ export default function ({
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: (0.1 + i) / 10 }}
-                          className={`btn active:bg-secondary bg-transparent border-none hover:bg-secondary hover:text-primary  ${
+                          className={`btn  active:bg-secondary  border-none hover:bg-secondary hover:text-primary  ${
                             option.title === "CONNECT WALLET" && "btn-disabled"
+                          } ${
+                            option.href.toLowerCase() ===
+                            pathname!.toLowerCase()
+                              ? " pointer-events-none bg-secondary text-primary "
+                              : "bg-transparent"
                           }`}
                         >
                           {option.title.toUpperCase()}

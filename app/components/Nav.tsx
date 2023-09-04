@@ -57,7 +57,7 @@ export default function Nav() {
       />
       <Curtain
         navigate={() => {
-          route.push(navigatingTo);
+          route.push(navigatingTo!);
         }}
         isNavigating={!isNavigated}
       />

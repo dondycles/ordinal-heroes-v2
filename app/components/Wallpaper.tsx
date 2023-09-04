@@ -28,7 +28,6 @@ export default function Wallpaper() {
       src={windowSize.width > 620 ? lgwallpaper : smwallpaper}
       alt="HeroeZ"
       quality={100}
-      sizes="100vw"
       priority
     />
   );

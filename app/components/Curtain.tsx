@@ -9,8 +9,11 @@ export default function Curtain({
   isNavigating: boolean;
   navigate: () => void;
 }) {
-  const bgs = ["bg-[#bceaff]", "bg-accent"];
-
+  const randomColors = [
+    { bg: "bg-[#bceaff]", text: "text-neutral" },
+    { bg: "bg-accent", text: "text-primary" },
+  ];
+  const randomNumber = Math.floor(Math.random() * 2);
   return (
     <div className=" fixed top-0 left-0 w-screen h-screen z-[51] pointer-events-none">
       <AnimatePresence initial={false}>
@@ -25,9 +28,7 @@ export default function Curtain({
                 navigate();
               }, 1000);
             }}
-            className={` w-full  h-full  px-6 pb-6 flex flex-col gap-4 items-center justify-center ${
-              bgs[Math.floor(Math.random() * 2)]
-            }`}
+            className={` w-full  h-full  px-6 pb-6 flex flex-col gap-4 items-center justify-center ${randomColors[randomNumber].bg}`}
           >
             <Image
               priority
@@ -37,7 +38,9 @@ export default function Curtain({
               alt="HeroeZ"
             />
 
-            <span className="loading loading-infinity loading-lg text-neutral" />
+            <span
+              className={`loading loading-infinity loading-lg ${randomColors[randomNumber].text}`}
+            />
           </motion.div>
         )}
       </AnimatePresence>

@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import Nav from "./components/Nav";
 import AnnouncementBar from "./components/AnnouncementBar";
-import Image from "next/image";
-import wallpaper from "../public/lg-wallpaper.webp";
 import Wallpaper from "./components/Wallpaper";
 
 const inter = Kanit({ subsets: ["latin"], weight: ["200", "400", "900"] });
