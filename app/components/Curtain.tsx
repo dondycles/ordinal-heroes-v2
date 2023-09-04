@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import logohighres from "@/public/logohighres.webp";
 export default function Curtain({
   isNavigating,
   navigate,
@@ -29,12 +30,10 @@ export default function Curtain({
             }`}
           >
             <Image
-              width={3000}
-              height={2368}
               priority
               quality={100}
               className="max-w-[300px] w-full"
-              src="/logohighres.webp"
+              src={logohighres}
               alt="HeroeZ"
             />
 

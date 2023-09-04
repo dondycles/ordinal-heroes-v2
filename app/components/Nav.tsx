@@ -5,7 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 import Menu from "./Menu";
 import MenuBtn from "./MenuBtn";
 import Curtain from "./Curtain";
-import Link from "next/link";
+import logo256 from "@/public/logo256.png";
+import Image from "next/image";
 export default function Nav() {
   const pathname = usePathname();
   const route = useRouter();
@@ -37,10 +38,12 @@ export default function Nav() {
         }}
         className=" cursor-pointer"
       >
-        <img
-          className=" aspect-square h-[64px]"
-          src="/logo256.png"
+        <Image
+          className=" aspect-square w-[64px]"
+          src={logo256}
           alt="HeroeZ"
+          quality={100}
+          priority
         />
       </div>
       {/* <div className="text-xs">
