@@ -21,7 +21,7 @@ export default function Curtain({
                 navigate();
               }, 1000);
             }}
-            className=" w-full  h-full bg-accent px-6 pb-6 flex flex-col gap-4 items-center justify-center"
+            className=" w-full  h-full bg-[#bceaff]    px-6 pb-6 flex flex-col gap-4 items-center justify-center"
           >
             <motion.img src="/logo256.png" alt="HeroeZ" />
             <motion.span className="loading loading-infinity loading-xl text-primary" />
